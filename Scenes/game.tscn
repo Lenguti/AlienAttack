@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2jk4ljejk8mg"]
+
+[ext_resource type="Texture2D" uid="uid://yb06x5ueqq3o" path="res://Assets/textures/SpaceBackground.jpg" id="1_byhry"]
+[ext_resource type="PackedScene" uid="uid://csuxtmuiqd4dr" path="res://Scenes/player.tscn" id="2_v34ji"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bngpi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t7oi"]
+size = Vector2(49, 2021.25)
+
+[node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_byhry")
+
+[node name="Boundaries" type="Node" parent="."]
+
+[node name="LeadBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1912, 35)
+physics_material_override = SubResource("PhysicsMaterial_bngpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeadBoundary"]
+position = Vector2(37, 503.5)
+shape = SubResource("RectangleShape2D_6t7oi")
+
+[node name="TrailBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1556, 32)
+physics_material_override = SubResource("PhysicsMaterial_bngpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TrailBoundary"]
+position = Vector2(-1584, 514)
+shape = SubResource("RectangleShape2D_6t7oi")
+
+[node name="TopBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1916, -263)
+physics_material_override = SubResource("PhysicsMaterial_bngpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopBoundary"]
+position = Vector2(-957.625, 136)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_6t7oi")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1923, 1069)
+physics_material_override = SubResource("PhysicsMaterial_bngpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomBoundary"]
+position = Vector2(-957.625, 136)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_6t7oi")
+
+[node name="Player" parent="." instance=ExtResource("2_v34ji")]
+position = Vector2(140, 561)
+scale = Vector2(0.374674, 0.374674)
+target_velociy = 700
