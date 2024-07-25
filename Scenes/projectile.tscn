@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b130rja20g7hy"]
+[gd_scene load_steps=5 format=3 uid="uid://b130rja20g7hy"]
 
 [ext_resource type="Script" path="res://Scripts/Projectile.gd" id="1_8guui"]
 [ext_resource type="Texture2D" uid="uid://bnx041vpe3jm2" path="res://Assets/textures/rocket.png" id="2_vecgp"]
+[ext_resource type="PackedScene" uid="uid://cmanhcfucc8je" path="res://Scenes/attack_component.tscn" id="3_whl5r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ta1fr"]
 radius = 29.2
 height = 122.4
 
-[node name="Projectile" type="Area2D"]
+[node name="Projectile" type="Area2D" node_paths=PackedStringArray("attack_component")]
 scale = Vector2(0.431542, 0.431542)
 script = ExtResource("1_8guui")
+attack_component = NodePath("AttackComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_vecgp")
@@ -17,3 +19,5 @@ texture = ExtResource("2_vecgp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ta1fr")
+
+[node name="AttackComponent" parent="." instance=ExtResource("3_whl5r")]

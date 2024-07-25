@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7npl28jxm2qt"]
+
+[ext_resource type="Script" path="res://Scripts/HelthComponent.gd" id="1_nt5c0"]
+
+[node name="HelthComponent" type="Node"]
+script = ExtResource("1_nt5c0")

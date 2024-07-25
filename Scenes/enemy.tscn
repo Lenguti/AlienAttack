@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlpvxb17vgbwf"]
+
+[ext_resource type="Texture2D" uid="uid://co1ugk5ak1len" path="res://Assets/textures/enemy_ship_2.png" id="1_5nliw"]
+[ext_resource type="PackedScene" uid="uid://b7npl28jxm2qt" path="res://Scenes/helth_component.tscn" id="2_eps70"]
+[ext_resource type="PackedScene" uid="uid://b47hhwyug4ljq" path="res://Scenes/hitbox_component.tscn" id="3_0r6jt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rba6"]
+radius = 61.2
+height = 490.8
+
+[node name="Enemy" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 4.71239
+scale = Vector2(0.721279, 0.721279)
+texture = ExtResource("1_5nliw")
+
+[node name="HelthComponent" parent="." instance=ExtResource("2_eps70")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_0r6jt")]
+health_component = NodePath("../HelthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8rba6")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2jk4ljejk8mg"]
+[gd_scene load_steps=6 format=3 uid="uid://b2jk4ljejk8mg"]
 
 [ext_resource type="Texture2D" uid="uid://yb06x5ueqq3o" path="res://Assets/textures/SpaceBackground.jpg" id="1_byhry"]
 [ext_resource type="PackedScene" uid="uid://csuxtmuiqd4dr" path="res://Scenes/player.tscn" id="2_v34ji"]
+[ext_resource type="PackedScene" uid="uid://dlpvxb17vgbwf" path="res://Scenes/enemy.tscn" id="3_4wfdy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bngpi"]
 
@@ -61,3 +62,6 @@ shape = SubResource("RectangleShape2D_6t7oi")
 position = Vector2(140, 561)
 scale = Vector2(0.374674, 0.374674)
 target_velociy = 700
+
+[node name="Enemy" parent="." instance=ExtResource("3_4wfdy")]
+position = Vector2(1563, 572)
