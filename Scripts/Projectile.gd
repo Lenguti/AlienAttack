@@ -8,7 +8,7 @@ func _ready():
 	top_level = true
 	area_shape_entered.connect(_on_area_entered)
 
-func _process(delta):
+func _physics_process(delta):
 	global_position += (Vector2(velocity * delta, 0))
 
 func set_starting_position(pos: Vector2):
