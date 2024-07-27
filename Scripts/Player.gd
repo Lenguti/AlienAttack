@@ -21,7 +21,7 @@ func _process(_delta: float):
 		add_child(projectile_component)
 
 func _physics_process(_delta: float):
-	print("Current global pos: (%d, %d)" % [global_position.x, global_position.y])
+	#print("Current global pos: (%d, %d)" % [global_position.x, global_position.y])
 	velocity = Vector2(0, 0)
 	if (Input.is_action_pressed("move_right")):
 		velocity.x = target_velociy

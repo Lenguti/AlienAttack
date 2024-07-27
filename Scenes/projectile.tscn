@@ -21,3 +21,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ta1fr")
 
 [node name="AttackComponent" parent="." instance=ExtResource("3_whl5r")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-60.2491, -2.31727)
+scale = Vector2(0.731727, 2.43314)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://yb06x5ueqq3o" path="res://Assets/textures/SpaceBackground.jpg" id="1_byhry"]
 [ext_resource type="PackedScene" uid="uid://csuxtmuiqd4dr" path="res://Scenes/player.tscn" id="2_v34ji"]
-[ext_resource type="PackedScene" uid="uid://dlpvxb17vgbwf" path="res://Scenes/enemy.tscn" id="3_4wfdy"]
+[ext_resource type="PackedScene" uid="uid://lhgrdcclexq7" path="res://Scenes/enemy_spawner.tscn" id="3_fc5go"]
 
 [node name="Game" type="Node2D"]
 
@@ -22,5 +22,4 @@ position = Vector2(140, 561)
 scale = Vector2(0.374674, 0.374674)
 target_velociy = 700
 
-[node name="Enemy" parent="." instance=ExtResource("3_4wfdy")]
-position = Vector2(1563, 572)
+[node name="EnemySpawner" parent="." instance=ExtResource("3_fc5go")]
