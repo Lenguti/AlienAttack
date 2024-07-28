@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://csuxtmuiqd4dr"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_b5j8w"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_b5j8w"]
 [ext_resource type="Texture2D" uid="uid://caeykugwdyi3c" path="res://Assets/textures/player_ship.png" id="2_coig2"]
 [ext_resource type="PackedScene" uid="uid://b47hhwyug4ljq" path="res://Scenes/hitbox_component.tscn" id="3_cpvdc"]
 [ext_resource type="PackedScene" uid="uid://b7npl28jxm2qt" path="res://Scenes/helth_component.tscn" id="4_0j3sd"]

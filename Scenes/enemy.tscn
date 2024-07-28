@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dlpvxb17vgbwf"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_agvxi"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_tlcr8"]
 [ext_resource type="PackedScene" uid="uid://b7npl28jxm2qt" path="res://Scenes/helth_component.tscn" id="2_eps70"]
 [ext_resource type="PackedScene" uid="uid://b47hhwyug4ljq" path="res://Scenes/hitbox_component.tscn" id="3_0r6jt"]
 [ext_resource type="Texture2D" uid="uid://1m3iu81lnfeh" path="res://Assets/textures/enemy_ship.png" id="4_1dkj1"]
@@ -14,7 +14,7 @@ radius = 29.2
 height = 122.4
 
 [node name="Enemy" type="Node2D"]
-script = ExtResource("1_agvxi")
+script = ExtResource("1_tlcr8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708

@@ -1,8 +1,5 @@
-extends CharacterBody2D
 class_name Player
-
-@onready var projectile_scn: Resource = preload("res://Scenes/projectile.tscn")
-@onready var viewport_rect: Vector2 = get_viewport_rect().size
+extends CharacterBody2D
 
 @export var target_velociy: int = 400
 @export var pixel_projectile_offset_x: int = 100
@@ -10,11 +7,15 @@ class_name Player
 const PLAYER_HEIGHT_OFFSET: int = 45
 const PLAYER_WIDTH_OFFSET: int = 65
 
+@onready var ProjectileScene: Resource = preload("res://Scenes/projectile.tscn")
+@onready var viewport_rect: Vector2 = get_viewport_rect().size
+
 func _process(_delta: float):
 	if (Input.is_action_just_pressed("fire")):
-		var projectile_component: ProjectileComponent = projectile_scn.instantiate()
+		var projectile_component: ProjectileComponent = ProjectileScene.instantiate()
 		projectile_component.set_starting_position(Vector2(global_position.x + pixel_projectile_offset_x, global_position.y))
 		add_child(projectile_component)
+
 
 func _physics_process(_delta: float):
 	#print("Current global pos: (%d, %d)" % [global_position.x, global_position.y])
@@ -28,10 +29,10 @@ func _physics_process(_delta: float):
 	if (Input.is_action_pressed("move_down")):
 		velocity.y = target_velociy
 	move_and_slide()
-	check_bounds()
+	_check_bounds()
 
 
-func check_bounds():
+func _check_bounds():
 	if global_position.x < 0:
 		global_position.x = 0
 	if global_position.y - PLAYER_HEIGHT_OFFSET < 0:
@@ -40,3 +41,4 @@ func check_bounds():
 		global_position.x = viewport_rect.x - PLAYER_WIDTH_OFFSET
 	if global_position.y + PLAYER_HEIGHT_OFFSET > viewport_rect.y:
 		global_position.y = viewport_rect.y - PLAYER_HEIGHT_OFFSET
+
