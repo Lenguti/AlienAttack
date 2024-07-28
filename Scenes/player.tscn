@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://csuxtmuiqd4dr"]
+[gd_scene load_steps=6 format=3 uid="uid://csuxtmuiqd4dr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_b5j8w"]
 [ext_resource type="Texture2D" uid="uid://caeykugwdyi3c" path="res://Assets/textures/player_ship.png" id="2_coig2"]
+[ext_resource type="PackedScene" uid="uid://b47hhwyug4ljq" path="res://Scenes/hitbox_component.tscn" id="3_cpvdc"]
+[ext_resource type="PackedScene" uid="uid://b7npl28jxm2qt" path="res://Scenes/helth_component.tscn" id="4_0j3sd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqdix"]
 radius = 182.8
@@ -15,6 +17,11 @@ script = ExtResource("1_b5j8w")
 rotation = 1.5708
 texture = ExtResource("2_coig2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_cpvdc")]
+health_component = NodePath("../HelthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 rotation = -3.14159
 shape = SubResource("CapsuleShape2D_dqdix")
+
+[node name="HelthComponent" parent="." instance=ExtResource("4_0j3sd")]

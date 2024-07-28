@@ -1,22 +1,18 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var projectile_scn: Resource = preload("res://Scenes/projectile.tscn")
+@onready var viewport_rect: Vector2 = get_viewport_rect().size
+
 @export var target_velociy: int = 400
 @export var pixel_projectile_offset_x: int = 100
-
-var projectile_component_resource: Resource
-var viewport_rect: Vector2
 
 const PLAYER_HEIGHT_OFFSET: int = 45
 const PLAYER_WIDTH_OFFSET: int = 65
 
-func _ready():
-	viewport_rect = get_viewport_rect().size
-	projectile_component_resource = preload("res://Scenes/projectile.tscn")
-
 func _process(_delta: float):
 	if (Input.is_action_just_pressed("fire")):
-		var projectile_component: ProjectileComponent = projectile_component_resource.instantiate()
+		var projectile_component: ProjectileComponent = projectile_scn.instantiate()
 		projectile_component.set_starting_position(Vector2(global_position.x + pixel_projectile_offset_x, global_position.y))
 		add_child(projectile_component)
 

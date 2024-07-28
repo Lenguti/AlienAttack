@@ -10,7 +10,8 @@ func _ready():
 
 func _on_timer_tick():
 	print("Timer did tick!")
-	var marker: Marker2D = enemy_positions.pick_random()
+	#var marker: Marker2D = enemy_positions.pick_random()
+	var marker: Marker2D = enemy_positions[3]
 	var enemy: Enemy = enemy_scene.instantiate()
 	enemy.global_position = marker.position
 	add_child(enemy)

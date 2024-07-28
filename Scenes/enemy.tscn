@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlpvxb17vgbwf"]
+[gd_scene load_steps=8 format=3 uid="uid://dlpvxb17vgbwf"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_agvxi"]
 [ext_resource type="PackedScene" uid="uid://b7npl28jxm2qt" path="res://Scenes/helth_component.tscn" id="2_eps70"]
 [ext_resource type="PackedScene" uid="uid://b47hhwyug4ljq" path="res://Scenes/hitbox_component.tscn" id="3_0r6jt"]
 [ext_resource type="Texture2D" uid="uid://1m3iu81lnfeh" path="res://Assets/textures/enemy_ship.png" id="4_1dkj1"]
+[ext_resource type="PackedScene" uid="uid://cmanhcfucc8je" path="res://Scenes/attack_component.tscn" id="5_oxpxd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1fki"]
 height = 103.2
@@ -32,3 +33,13 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1yeax")
 
 [node name="HelthComponent" parent="." instance=ExtResource("2_eps70")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="AttackComponent" parent="." instance=ExtResource("5_oxpxd")]
+damage = 10
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(52, -2)
