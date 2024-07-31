@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2jk4ljejk8mg"]
+[gd_scene load_steps=6 format=3 uid="uid://b2jk4ljejk8mg"]
 
 [ext_resource type="Texture2D" uid="uid://yb06x5ueqq3o" path="res://Assets/textures/SpaceBackground.jpg" id="1_byhry"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_ynj0n"]
+[ext_resource type="PackedScene" uid="uid://b1lyu82cq1ukl" path="res://Scenes/hud.tscn" id="2_svg8r"]
 [ext_resource type="PackedScene" uid="uid://csuxtmuiqd4dr" path="res://Scenes/player.tscn" id="2_v34ji"]
 [ext_resource type="PackedScene" uid="uid://lhgrdcclexq7" path="res://Scenes/enemy_spawner.tscn" id="3_fc5go"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ynj0n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_svg8r")]
+z_index = 2
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -20,6 +26,5 @@ texture = ExtResource("1_byhry")
 [node name="Player" parent="." instance=ExtResource("2_v34ji")]
 position = Vector2(140, 561)
 scale = Vector2(0.374674, 0.374674)
-target_velociy = 700
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_fc5go")]

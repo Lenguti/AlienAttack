@@ -17,11 +17,15 @@ script = ExtResource("1_b5j8w")
 rotation = 1.5708
 texture = ExtResource("2_coig2")
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_cpvdc")]
-health_component = NodePath("../HelthComponent")
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("3_cpvdc")]
+_health_component = NodePath("../HelthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 rotation = -3.14159
 shape = SubResource("CapsuleShape2D_dqdix")
 
 [node name="HelthComponent" parent="." instance=ExtResource("4_0j3sd")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

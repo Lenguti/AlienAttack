@@ -1,9 +1,8 @@
 class_name HitboxComponent
 extends Area2D
 
-@export var health_component: HealthComponent
+@export var _health_component: HealthComponent
 
-func on_hit(attack: int):
-	#get_parent().position.x += 50
-	health_component.take_damage(attack)
+func on_hit(attack: int) -> void:
+	_health_component.take_damage(attack)
 

@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1lyu82cq1ukl"]
+
+[ext_resource type="FontFile" uid="uid://dxh7gcxppjg22" path="res://Assets/font/Kenney Blocks.ttf" id="1_f6gkm"]
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_sqyar"]
+[ext_resource type="Texture2D" uid="uid://bnx041vpe3jm2" path="res://Assets/textures/rocket.png" id="2_e1gku"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q44ea"]
+font = ExtResource("1_f6gkm")
+font_size = 40
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sqyar")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -210.0
+offset_bottom = 60.0
+grow_horizontal = 0
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_q44ea")
+horizontal_alignment = 2
+
+[node name="Rocket1" type="Sprite2D" parent="."]
+position = Vector2(17, 1053)
+rotation = -1.5708
+scale = Vector2(0.418014, 0.418014)
+texture = ExtResource("2_e1gku")
+
+[node name="Rocket2" type="Sprite2D" parent="."]
+position = Vector2(44, 1053)
+rotation = -1.5708
+scale = Vector2(0.418014, 0.418014)
+texture = ExtResource("2_e1gku")
+
+[node name="Rocket3" type="Sprite2D" parent="."]
+position = Vector2(71, 1053)
+rotation = -1.5708
+scale = Vector2(0.418014, 0.418014)
+texture = ExtResource("2_e1gku")
+
+[node name="Rocket4" type="Sprite2D" parent="."]
+position = Vector2(97, 1053)
+rotation = -1.5708
+scale = Vector2(0.418014, 0.418014)
+texture = ExtResource("2_e1gku")

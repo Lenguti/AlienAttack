@@ -21,8 +21,8 @@ rotation = -1.5708
 scale = Vector2(0.251495, 0.251495)
 texture = ExtResource("4_1dkj1")
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_0r6jt")]
-health_component = NodePath("../HelthComponent")
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("3_0r6jt")]
+_health_component = NodePath("../HelthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(14, 1)
@@ -33,13 +33,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1yeax")
 
 [node name="HelthComponent" parent="." instance=ExtResource("2_eps70")]
+_max_health = 8
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
 [node name="AttackComponent" parent="." instance=ExtResource("5_oxpxd")]
-damage = 10
+_damage = 10
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(52, -2)

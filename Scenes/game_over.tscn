@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://bikvl2fpt8wof"]
+
+[ext_resource type="FontFile" uid="uid://dxh7gcxppjg22" path="res://Assets/font/Kenney Blocks.ttf" id="1_gej8i"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_mn7y4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpdlf"]
+bg_color = Color(0.639216, 0.513726, 0.913725, 0.505882)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wvxj"]
+font = ExtResource("1_gej8i")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxc1t"]
+font = ExtResource("1_gej8i")
+font_size = 30
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mn7y4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -331.0
+offset_right = 580.0
+offset_bottom = 331.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpdlf")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -158.0
+offset_right = 195.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1wvxj")
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -317.0
+offset_right = 140.0
+offset_bottom = -271.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "FINAL SCORE: 0"
+label_settings = SubResource("LabelSettings_oxc1t")
+
+[node name="PlayAgainButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -175.0
+offset_right = 122.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_gej8i")
+theme_override_font_sizes/font_size = 30
+text = "PLAY AGAIN"
