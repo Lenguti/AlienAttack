@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b130rja20g7hy"]
+[gd_scene load_steps=6 format=3 uid="uid://b130rja20g7hy"]
 
 [ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_ft5d0"]
 [ext_resource type="Texture2D" uid="uid://bnx041vpe3jm2" path="res://Assets/textures/rocket.png" id="2_vecgp"]
 [ext_resource type="PackedScene" uid="uid://cmanhcfucc8je" path="res://Scenes/attack_component.tscn" id="3_whl5r"]
+[ext_resource type="AudioStream" uid="uid://m7qbl4ttxfyt" path="res://Assets/audio/pewpew.mp3" id="4_qxqql"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ta1fr"]
 radius = 29.2
@@ -25,3 +26,7 @@ shape = SubResource("CapsuleShape2D_ta1fr")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-60.2491, -2.31727)
 scale = Vector2(0.731727, 2.43314)
+
+[node name="Pew" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qxqql")
+volume_db = -8.0

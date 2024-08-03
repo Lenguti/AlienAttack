@@ -10,16 +10,15 @@ func _ready() -> void:
 	_timer.timeout.connect(_on_timer_tick)
 
 
-# Need to figure this out as a single update and not a per frame update.
-func _process(_delta) -> void:
-	if Enemy.enemy_deaths != 0 and Enemy.enemy_deaths % 2 == 0:
-		print("SHOULD REDUCE WAIT TIMER: %f" % _timer.wait_time)
-		_timer.wait_time -= 2
+## Need to figure this out as a single update and not a per frame update.
+#func _process(_delta) -> void:
+	#if Enemy.enemy_deaths != 0 and Enemy.enemy_deaths % 2 == 0:
+		#print("SHOULD REDUCE WAIT TIMER: %f" % _timer.wait_time)
+		#_timer.wait_time -= 2
 
 
 func _on_timer_tick() -> void:
 	var marker: Marker2D = _enemy_positions.pick_random()
-	#var marker: Marker2D = _enemy_positions[3]
 	var enemy: Enemy = EnemyScene.instantiate()
 	enemy.global_position = marker.position
 	add_child(enemy)

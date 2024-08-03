@@ -20,6 +20,7 @@ var _current_rocket_fired: int = MAX_ROCKETS
 func _ready() -> void:
 	_timer.timeout.connect(_timer_did_tick)
 
+
 func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("fire")):
 		if _current_rocket_fired > 0:

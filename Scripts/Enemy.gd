@@ -38,8 +38,8 @@ func _on_timer_tick() -> void:
 	add_child(projectile_component)
 
 
+# This ensures when the enemy collides with player, the player takes damage.
 func _on_area_entered(body: Node2D) -> void:
-	print("Enemy hit!")
 	if body is HitboxComponent:
 		body.on_hit(_attck_component.get_damage())
 

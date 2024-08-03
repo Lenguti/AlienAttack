@@ -5,9 +5,11 @@ extends Area2D
 @export var _attack_component: AttackComponent
 
 @onready var _screen_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+@onready var _pew_player: AudioStreamPlayer = $Pew
 
 func _ready() -> void:
 	top_level = true
+	_pew_player.play()
 	area_shape_entered.connect(_on_area_entered)
 	_screen_notifier.screen_exited.connect(_on_screen_exited)
 
