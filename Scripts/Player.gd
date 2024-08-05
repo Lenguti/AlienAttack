@@ -14,6 +14,7 @@ const MAX_ROCKETS = 4
 var _current_rocket_fired: int = MAX_ROCKETS
 
 @onready var ProjectileScene: Resource = preload("res://Scenes/projectile.tscn")
+@onready var _rocket_booster: GPUParticles2D = $RocketBoosterEffect
 @onready var _timer: Timer = $Timer
 @onready var _viewport_rect: Vector2 = get_viewport_rect().size
 
@@ -32,11 +33,12 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	#print("Current global pos: (%d, %d)" % [global_position.x, global_position.y])
+	_rocket_booster.emitting = true
 	velocity = Vector2(0, 0)
 	if (Input.is_action_pressed("move_right")):
 		velocity.x = _target_velociy
 	if (Input.is_action_pressed("move_left")):
+		_rocket_booster.emitting = false
 		velocity.x = -_target_velociy
 	if (Input.is_action_pressed("move_up")):
 		velocity.y = -_target_velociy
