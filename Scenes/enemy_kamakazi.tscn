@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dllp4wh6gbstg"]
+
+[ext_resource type="Texture2D" uid="uid://co1ugk5ak1len" path="res://Assets/textures/enemy_ship_2.png" id="1_57nc5"]
+[ext_resource type="Script" path="res://Scripts/enemy_kamakazi.gd" id="2_fdn5u"]
+[ext_resource type="PackedScene" uid="uid://b47hhwyug4ljq" path="res://Scenes/hitbox_component.tscn" id="2_m8l07"]
+[ext_resource type="PackedScene" uid="uid://cmanhcfucc8je" path="res://Scenes/attack_component.tscn" id="3_4jro5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgw43"]
+radius = 80.4
+height = 698.4
+
+[node name="EnemyKamakazi" type="Sprite2D"]
+rotation = 1.5708
+scale = Vector2(0.313125, 0.313125)
+texture = ExtResource("1_57nc5")
+script = ExtResource("2_fdn5u")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_m8l07")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape2D_fgw43")
+
+[node name="AttackComponent" parent="." instance=ExtResource("3_4jro5")]
+_damage = 10

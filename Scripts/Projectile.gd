@@ -36,6 +36,9 @@ func _on_area_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _loc
 		# Check if the missle came from an enemy and the thing we hit is a player.
 		if get_parent() is Player and area.get_parent() is Enemy or get_parent() is Enemy and area.get_parent() is Player:
 			area.on_hit(_attack_component.get_damage())
+		elif get_parent() is Enemy and area.get_parent() is Enemy or area.get_parent() is EnemyKamakazi:
+			# Ignore when a rocket is shot by an enemy and it hits an enemy.
+			return
 	queue_free()
 
 

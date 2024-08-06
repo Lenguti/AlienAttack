@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2jk4ljejk8mg"]
+[gd_scene load_steps=9 format=3 uid="uid://b2jk4ljejk8mg"]
 
 [ext_resource type="Texture2D" uid="uid://yb06x5ueqq3o" path="res://Assets/textures/SpaceBackground.jpg" id="1_byhry"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ynj0n"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lhgrdcclexq7" path="res://Scenes/enemy_spawner.tscn" id="3_fc5go"]
 [ext_resource type="AudioStream" uid="uid://dynxlmx5kffht" path="res://Assets/audio/theme_music.mp3" id="6_gc7mi"]
 [ext_resource type="AudioStream" uid="uid://c5mcgghckdmo" path="res://Assets/audio/explosion.ogg" id="7_wjsfd"]
+[ext_resource type="PackedScene" uid="uid://d35ojr40x2vwi" path="res://Scenes/enemy_pather.tscn" id="8_giu86"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ynj0n")
@@ -38,3 +39,5 @@ volume_db = -14.0
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_wjsfd")
 volume_db = -4.0
+
+[node name="EnemyPather" parent="." instance=ExtResource("8_giu86")]
